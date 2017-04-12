@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">北邮校园网</string>
+    <string name="login">登录</string>
+    <string name="logout">注销</string>
+    <string name="connect_fail_info">网络不太给力( •̥́ ˍ •̀ू )，连上wifi了吗？</string>
+    <string name="connect_success">连上校园网啦</string>
+</resources>

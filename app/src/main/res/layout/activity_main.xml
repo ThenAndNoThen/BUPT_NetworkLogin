@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/llightGruy"
+    tools:context="com.example.administrator.schoolnetworklogin_out.view.activity.MainActivity"
+    android:orientation="vertical"
+    android:screenOrientation="portrait">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/bupt"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:id="@+id/imageView_erer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_22"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"/>
+
+                <ImageView
+                    android:id="@+id/imageView_sansan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_33"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/layout_accountInfo"
+                    android:visibility="invisible">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="bottom|center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="已使用校外流量："
+                            android:textSize="16dp"
+                            android:textColor="@color/colorPrimary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:id="@+id/textView_usedTraffic"
+                            android:textColor="@color/colorPrimary"/>
+                        <TextView
+                            android:id="@+id/textView_unitName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" MB"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorPrimary"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="剩余网费："
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView_balance"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorPrimary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 元"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorPrimary"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/layout_loginInfo"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="学号："
+                            android:textSize="24dp"
+                            android:textColor="@color/lightGruy"
+                            android:id="@+id/textView_username"/>
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="56dp"
+                            android:inputType="number"
+                            android:hint="请输入学号"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:ems="10"
+                            android:id="@+id/editText_classid"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="密码："
+                            android:textColor="@color/lightGruy"
+                            android:textSize="24dp"
+                            android:id="@+id/textView_password"/>
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="56dp"
+                            android:hint="请输入密码"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:inputType="textPassword"
+                            android:ems="10"
+                            android:id="@+id/editText_password"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <CheckBox
+                    android:text="记住密码"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="56dp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:id="@+id/checkBox"/>
+                <Button
+                    android:text="登录"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:id="@+id/button_login"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/login_button_selector"
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.01">
+
+    </LinearLayout>
+
+
+</LinearLayout>
