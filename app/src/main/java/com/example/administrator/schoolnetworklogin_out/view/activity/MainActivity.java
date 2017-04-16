@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData(){
-        getAccountInfo();
+//        getAccountInfo();
         SharedPreferences sp = getSharedPreferences("account", Context.MODE_PRIVATE);
         boolean isRemberPassword = sp.getBoolean("isRemberPassword",false);
         String username = sp.getString("username", "");
@@ -332,16 +332,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
     }
-//    @Override
-//    protected void onResume(){
-//        super.onResume();
+    @Override
+    protected void onResume(){
+        super.onResume();
 //        mProgressBar = new CustomProgressBar(this);
 //        mProgressBar.setCancelable(true);
 //        mProgressBar.setCanceledOnTouchOutside(true);
 //        mProgressBar.setOnCancelListener(this);
 //        mProgressBar.show();
-//        initData();
-//    }
+        initData();
+    }
 
     @Override
     public void onCancel(DialogInterface dialog) {
