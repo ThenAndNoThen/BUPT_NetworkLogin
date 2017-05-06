@@ -18,6 +18,8 @@ import com.example.administrator.schoolnetworklogin_out.R;
 import com.example.administrator.schoolnetworklogin_out.presenter.LoginAndExit;
 import com.example.administrator.schoolnetworklogin_out.presenter.impl.LoginAndExitImpl;
 import com.example.administrator.schoolnetworklogin_out.util.AccountInfo;
+import com.example.administrator.schoolnetworklogin_out.util.LocalAccountBean;
+
 import java.util.concurrent.Callable;
 import rx.Observable;
 import rx.Observer;
@@ -268,15 +270,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initData(){
 //        getAccountInfo();
-        SharedPreferences sp = getSharedPreferences("account", Context.MODE_PRIVATE);
-        boolean isRemberPassword = sp.getBoolean("isRemberPassword",false);
-        String username = sp.getString("username", "");
-        mEditTextClassid.setText(username);
-        if(isRemberPassword) {
-            String password = sp.getString("password", "");
-            mEditTextPassword.setText(password);
-            mCheckBox.setChecked(true);
-        }
+        Observable<LocalAccountBean> initObservable = Observable.fromCallable(new Callable<LocalAccountBean>() {
+            @Override
+            public LocalAccountBean call() {
+                SharedPreferences sp = getSharedPreferences("account", Context.MODE_PRIVATE);
+                boolean isRemberPassword = sp.getBoolean("isRemberPassword",false);
+                String username = sp.getString("username","");
+                String password = sp.getString("password","");
+                LocalAccountBean info = new LocalAccountBean(isRemberPassword,username,password);
+                return info;
+            }
+        });
+        initObservable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<LocalAccountBean>() {
+
+                    @Override
+                    public void onCompleted() { }
+
+                    @Override
+                    public void onError(Throwable e) { }
+
+                    @Override
+                    public void onNext(LocalAccountBean info){
+                        mEditTextClassid.setText(info.getUsername());
+                        if(info.isRemembered()) {
+                            mEditTextPassword.setText(info.getPassword());
+                            mCheckBox.setChecked(true);
+                        }
+                    }
+                });
+
+
     }
 
     private void getAccountInfo(){
